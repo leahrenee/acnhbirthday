@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "target": "ES2019",
+        "baseUrl": "packages/backend/src",
+        "outDir": "../dist",
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

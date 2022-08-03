@@ -1,0 +1,152 @@
+.grid {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+}
+
+.buttonPrev {
+  margin-top: 185%;
+  width: 85px;
+  height: 30px;
+}
+
+.buttonNext {
+  margin-left: -20px;
+  margin-top: 380%;
+  width: 60px;
+  height: 30px;
+}
+
+.passport {
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: large;
+  color: #948862;
+  font-weight: lighter;
+}
+
+.passportImg {
+  display: block;
+  width: 711px;
+  height: 400px;
+}
+
+.passportPhoto {
+  position: absolute;
+  height: 153px;
+  width: 155px;
+  bottom: 38.5%;
+  left: 11%;
+}
+
+.villagerImage {
+  margin-top: 15%;
+  margin-right: 2%;
+  width: auto;
+  height: 120px;
+}
+
+.quote {
+  position: absolute;
+  font-size: medium;
+  font-style: italic;
+  text-align: left;
+  max-width: 300px;
+  bottom: 53%;
+  left: 38%;
+}
+
+.phrase {
+  position: absolute;
+  bottom: 64%;
+  left: 42%;
+}
+
+.type {
+  position: absolute;
+  bottom: 64%;
+  left: 64%;
+}
+
+.name {
+  position: absolute;
+  text-align: left;
+  font-size: 23px;
+  max-width: 300px;
+  bottom: 38%;
+  left: 38%;
+}
+
+@media (max-width: 600px) {
+  .passportImg {
+    display: block;
+    width: 370px;
+    height: 220px;
+  }
+
+  .passportPhoto {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    bottom: 38.5%;
+    left: 10.5%;
+  }
+
+  .villagerImage {
+    margin-top: 5%;
+    margin-left: 9%;
+    width: auto;
+    height: 70px;
+  }
+
+  .quote {
+    position: absolute;
+    font-size: x-small;
+    font-style: italic;
+    text-align: left;
+    max-width: 300px;
+    bottom: 53%;
+    left: 38%;
+  }
+
+  .phrase {
+    position: absolute;
+    font-size: x-small;
+    bottom: 64%;
+    left: 42%;
+  }
+
+  .type {
+    position: absolute;
+    font-size: x-small;
+    bottom: 64%;
+    left: 64%;
+  }
+
+  .name {
+    position: absolute;
+    text-align: left;
+    font-size: small;
+    max-width: 200px;
+    bottom: 38%;
+    left: 38%;
+  }
+
+  .buttonNext {
+    position: absolute;
+    margin-top: -12%;
+    width: 60px;
+    height: 30px;
+    right: 30%;
+  }
+
+  .buttonPrev {
+    position: absolute;
+    margin-top: -12%;
+    width: 85px;
+    height: 30px;
+    left: 25%;
+  }
+}

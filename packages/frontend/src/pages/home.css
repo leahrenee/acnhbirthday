@@ -1,0 +1,71 @@
+.form {
+  position: relative;
+  text-align: center;
+}
+
+.prompt {
+  width: 300px;
+}
+
+.birthInput {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Quicksand", sans-serif;
+  color: #80725b;
+}
+
+.birthdayLabel {
+  margin-left: 25px;
+}
+
+.nameInput {
+  margin-top: 5px;
+}
+
+img {
+  height: 200px;
+  width: 400px;
+}
+
+input {
+  font-family: "Quicksand", sans-serif;
+  background-color: #fff9e6;
+  border-radius: 5px;
+  border-color: rgba(210, 214, 201, 0.5);
+  min-width: 100px;
+  margin-top: 5px;
+  color: #80725b;
+}
+
+select {
+  font-family: "Quicksand", sans-serif;
+  background-color: #fff9e6;
+  border-radius: 5px;
+  border-color: rgba(210, 214, 201, 0.5);
+  min-width: 100px;
+  background: url(ACNHarrow.png) no-repeat right;
+  background-position-x: 80px;
+  -webkit-appearance: none;
+  margin-top: 5px;
+  color: #80725b;
+}
+
+button {
+  font-family: "Quicksand", sans-serif;
+  font-size: larger;
+  color: white;
+  background-color: #0cc6b8;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  img {
+    height: 175px;
+    width: 325px;
+  }
+}
