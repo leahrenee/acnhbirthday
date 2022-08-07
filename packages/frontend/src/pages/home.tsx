@@ -2,10 +2,6 @@ import React, { FunctionComponent, useState, useEffect } from "react";
 import { VillagerCard } from "../components/villagerCard";
 import "../pages/home.css";
 
-interface IHome {
-  foo: string;
-}
-
 interface IVillager {
   name: string;
   url: string;
@@ -15,30 +11,40 @@ interface IVillager {
   quote: string;
 }
 
-export const Home: FunctionComponent<IHome> = (props) => {
+export const Home: FunctionComponent = () => {
   const [villagers, setVillagers] = useState<IVillager[]>([]);
   const [birthday, setBirthday] = useState<number>(1);
   const [birthmonth, setBirthmonth] = useState<number>(0);
   const [name, setName] = useState<string>("");
   const [showForm, setShowForm] = useState<boolean>(true);
   const months = new Array(12).fill(0).map((_, index) => {
-    return new Date(2020, index).toLocaleDateString(undefined, {
+    return new Date(2022, index).toLocaleDateString(undefined, {
       month: "long",
     });
   });
 
-  useEffect(() => {}, [villagers]);
+  console.log(months);
 
   const getVillager = async () => {
     const response = await fetch(
-      `https://291wzm6lb4.execute-api.us-east-1.amazonaws.com/villager?birthday=${birthday}&birthmonth=${birthmonth + 1}`
+      `http://localhost:3004/?birthday=${birthday}&birthmonth=${birthmonth + 1}`
     );
     setVillagers(await response.json());
     setShowForm(false);
   };
 
   const getDaysInMonth = (month: number) => {
-    return new Date(2022, month, 0).getDate();
+    //Using 2022 so that we do not get a leap year, since no villagers have birthdays on Feb 29th
+    const days = new Date(2022, month, 0).getDate();
+    return new Array(days).fill(0).map((_, i) => i);
+  };
+
+  const onTryAgain = () => {
+    setBirthday(1);
+    setBirthmonth(0);
+    setName("");
+    setVillagers([]);
+    setShowForm(true);
   };
 
   return (
@@ -62,9 +68,9 @@ export const Home: FunctionComponent<IHome> = (props) => {
               <div>
                 <label>Birth month: </label>
                 <select onChange={(e) => setBirthmonth(Number(e.target.value))}>
-                  {months.map((x, y) => (
-                    <option key={y} value={y}>
-                      {x}
+                  {months.map((month, index) => (
+                    <option key={month} value={index}>
+                      {month}
                     </option>
                   ))}
                 </select>
@@ -72,9 +78,9 @@ export const Home: FunctionComponent<IHome> = (props) => {
               <div>
                 <label className="birthdayLabel">Birthday: </label>
                 <select onChange={(e) => setBirthday(Number(e.target.value))}>
-                  {new Array(getDaysInMonth(birthmonth + 1)).fill(0).map((_, y) => (
-                    <option key={y} value={y + 1}>
-                      {y + 1}
+                  {getDaysInMonth(birthmonth + 1).map((day) => (
+                    <option key={day} value={day + 1}>
+                      {day + 1}
                     </option>
                   ))}
                 </select>
@@ -86,17 +92,7 @@ export const Home: FunctionComponent<IHome> = (props) => {
       ) : (
         <div>
           <VillagerCard villagers={villagers} name={name}></VillagerCard>
-          <button
-            onClick={() => {
-              setBirthday(1);
-              setBirthmonth(0);
-              setName("");
-              setVillagers([]);
-              setShowForm(true);
-            }}
-          >
-            Try Again
-          </button>
+          <button onClick={onTryAgain}>Try Again</button>
         </div>
       )}
     </div>

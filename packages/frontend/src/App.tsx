@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <div className="background-box main-content">
-        <Home foo="hi"></Home>
+        <Home></Home>
       </div>
     </div>
   );

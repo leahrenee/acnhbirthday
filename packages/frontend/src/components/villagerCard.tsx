@@ -71,7 +71,7 @@ export const VillagerCard: FunctionComponent<IVillagerCard> = ({
               Next
             </button>
           ) : (
-            <span></span>
+            <></>
           )}
         </div>
       </div>

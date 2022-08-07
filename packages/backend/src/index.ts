@@ -1,8 +1,10 @@
+import * as dotenv from 'dotenv';
+dotenv.config()
 import express from "express";
 import { api } from "./api";
 
 const app = express();
-
+const port = 3004
 const cache = new Map<any, string>();
 
 app.use((req, res, next) => {
@@ -16,8 +18,6 @@ app.use((req, res, next) => {
 
 app.get("/", async (req, res) => {
   const { birthday, birthmonth } = req.query;
-  console.log(birthday)
-  console.log(birthmonth)
   if (cache.has(JSON.stringify(req.query))) {
     console.log("Retrieve from cache");
     return res.send(cache.get(JSON.stringify(req.query)));
@@ -31,6 +31,6 @@ app.get("/", async (req, res) => {
   res.send(data);
 });
 
-app.listen(3004, () => {
-  console.log("running on port 3000");
+app.listen(port, () => {
+  console.log(`running on port ${port}`);
 });
